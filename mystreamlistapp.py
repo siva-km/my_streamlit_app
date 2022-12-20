@@ -1,3 +1,3 @@
-import strealit as slit
+import streamlit as slit
 
 slit.title("My Test App")
