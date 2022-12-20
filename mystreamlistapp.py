@@ -1,4 +1,5 @@
 import streamlit as slit
+import pandas as pd
 
 slit.title("TITLE :: My Test App ")
 
@@ -6,4 +7,10 @@ slit.header("Header :: My Header")
 slit.text("Line 1")
 slit.text("Line 2")
 slit.text("Line 3")
-slit.text("Few emjois :: 🥣 🥗 🐔 🥑 🍞")
+slit.text("Few emojis :: 🥣 🥗 🐔 🥑 🍞")
+
+fruits_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+slit.dataframe(fruits_list)
+
+slit.multiselect("Pick fruits :: ", list(fruits_list.index))
+slit.dataframe(fruits_list)
