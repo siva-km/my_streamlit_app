@@ -10,6 +10,7 @@ slit.text("Line 3")
 slit.text("Few emojis :: 🥣 🥗 🐔 🥑 🍞")
 
 fruits_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+fruits_list = fruits_list.set_index('Fruit')
 slit.dataframe(fruits_list)
 
 slit.multiselect("Pick fruits :: ", list(fruits_list.index))
