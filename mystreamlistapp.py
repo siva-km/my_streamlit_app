@@ -15,3 +15,5 @@ slit.dataframe(fruits_list)
 
 slit.multiselect("Pick fruits :: ", list(fruits_list.index))
 slit.dataframe(fruits_list)
+
+slit.multiselect("Pick fruits :: ", list(fruits_list.index),['Lemon','Lime'])
