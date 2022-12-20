@@ -16,4 +16,5 @@ slit.dataframe(fruits_list)
 slit.multiselect("Pick fruits :: ", list(fruits_list.index))
 slit.dataframe(fruits_list)
 
-slit.multiselect("Pick fruits :: ", list(fruits_list.index),['Lemon','Lime'])
+c_fruits_list = slit.multiselect("Pick fruits :: ", list(fruits_list.index),['Lemon','Lime'])
+display_fruits = fruits_list.loc[c_fruits_list]
