@@ -1,3 +1,8 @@
 import streamlit as slit
 
-slit.title("My Test App")
+slit.title("TITLE :: My Test App ")
+
+slit.header("Header :: My Header")
+slit.text("Line 1")
+slit.text("Line 2")
+slit.text("Line 3")
