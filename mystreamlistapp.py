@@ -22,6 +22,14 @@ slit.dataframe(display_fruits)
 
 #Chapter 8
 import requests as req
-fruityvoice_resp = req.get("https://fruityvice.com/api/fruit/watermelon")
-slit.text(fruityvoice_resp)
-slit.text(fruityvoice_resp.json())
+fruityvoice_resp1 = req.get("https://fruityvice.com/api/fruit/"+"watermelon")
+#slit.text(fruityvoice_resp)
+#slit.text(fruityvoice_resp.json())
+
+fruityvoice_norm1 = pd.json_normalize(fruityvoice_resp1.json())
+slit.dataframe(fruityvoice_norm1)
+
+fruityvoice_resp2 = req.get("https://fruityvice.com/api/fruit/"+"kiwi")
+
+fruityvoice_norm2 = pd.json_normalize(fruityvoice_resp2.json())
+slit.dataframe(fruityvoice_norm2)
