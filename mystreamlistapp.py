@@ -33,3 +33,12 @@ fruityvoice_resp2 = req.get("https://fruityvice.com/api/fruit/"+"kiwi")
 
 fruityvoice_norm2 = pd.json_normalize(fruityvoice_resp2.json())
 slit.dataframe(fruityvoice_norm2)
+
+slit.header("::FruityVice - Selector::")
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
+
+fruityvoice_resp_var = req.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+
+fruityvoice_norm_var = pd.json_normalize(fruityvoice_resp_var.json())
+slit.dataframe(fruityvoice_norm_var)
