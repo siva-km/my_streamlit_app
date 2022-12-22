@@ -19,3 +19,9 @@ slit.dataframe(fruits_list)
 c_fruits_list = slit.multiselect("Pick fruits :: ", list(fruits_list.index),['Lemon','Lime'])
 display_fruits = fruits_list.loc[c_fruits_list]
 slit.dataframe(display_fruits)
+
+#Chapter 8
+import requests as req
+fruityvoice_resp = req.get("https://fruityvice.com/api/fruit/watermelon")
+slit.text(fruityvoice_resp)
+slit.text(fruityvoice_resp.json())
