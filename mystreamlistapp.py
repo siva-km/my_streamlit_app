@@ -45,6 +45,7 @@ slit.dataframe(fruityvoice_norm_var)
 
 #testing with python module
 import snowflake.connector
+import streamlit as slit
 my_cnx = snowflake.connector.connect(**slit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
