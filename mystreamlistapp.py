@@ -52,7 +52,7 @@ my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 slit.text("Hello from Snowflake:")
 #slit.text(my_data_row)
 
-my_cur = my_cnx.cursor()
+#my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")
 my_data_row = my_cur.fetchone()
 slit.text("Fruit load list:")
