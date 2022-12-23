@@ -37,14 +37,25 @@ fruityvoice_resp2 = req.get("https://fruityvice.com/api/fruit/"+"kiwi")
 fruityvoice_norm2 = pd.json_normalize(fruityvoice_resp2.json())
 slit.dataframe(fruityvoice_norm2)
 
+#slit.header("::FruityVice - Selector::")
+#fruit_choice = slit.text_input('What fruit would you like information about?','Kiwi')
+#slit.write('The user entered ', fruit_choice)
+#fruityvoice_resp_var = req.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+#fruityvoice_norm_var = pd.json_normalize(fruityvoice_resp_var.json())
+#slit.dataframe(fruityvoice_norm_var)
+
 slit.header("::FruityVice - Selector::")
-fruit_choice = slit.text_input('What fruit would you like information about?','Kiwi')
-slit.write('The user entered ', fruit_choice)
+try:
+  fruit_choice = slit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    slit.error("Please choose a fruit")
+  else:
+    fruityvoice_resp_var = req.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+    fruityvoice_norm_var = pd.json_normalize(fruityvoice_resp_var.json())
+    slit.dataframe(fruityvoice_norm_var)
 
-fruityvoice_resp_var = req.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-
-fruityvoice_norm_var = pd.json_normalize(fruityvoice_resp_var.json())
-slit.dataframe(fruityvoice_norm_var)
+except URLError as e:
+  slit.error()
 
 slit.stop()
 
