@@ -1,5 +1,8 @@
 import streamlit as slit
 import pandas as pd
+import requests as req
+import snowflake.connector
+from urllib.error import URLError
 
 slit.title("TITLE :: My Test App ")
 
@@ -21,7 +24,7 @@ display_fruits = fruits_list.loc[c_fruits_list]
 slit.dataframe(display_fruits)
 
 #Chapter 8
-import requests as req
+
 fruityvoice_resp1 = req.get("https://fruityvice.com/api/fruit/"+"watermelon")
 #slit.text(fruityvoice_resp)
 #slit.text(fruityvoice_resp.json())
@@ -43,9 +46,9 @@ fruityvoice_resp_var = req.get("https://fruityvice.com/api/fruit/"+fruit_choice)
 fruityvoice_norm_var = pd.json_normalize(fruityvoice_resp_var.json())
 slit.dataframe(fruityvoice_norm_var)
 
+slit.stop()
+
 #testing with python module
-import snowflake.connector
-import streamlit as slit
 my_cnx = snowflake.connector.connect(**slit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
