@@ -60,7 +60,7 @@ try:
 except URLError as e:
   slit.error()
 
-slit.stop()
+#slit.stop()
 
 #testing with python module
 my_cnx = snowflake.connector.connect(**slit.secrets["snowflake"])
