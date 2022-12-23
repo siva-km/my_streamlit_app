@@ -65,3 +65,8 @@ slit.dataframe(my_data_row)
 my_data_set = my_cur.fetchall()
 slit.header("::::Fruit list contains::::")
 slit.dataframe(my_data_set)
+
+#adding a new fruit
+slit.header("::Fruity - Input::")
+fruit_inp = slit.text_input('Add a new fruit ::')
+slit.write('The user entered ', fruit_inp)
