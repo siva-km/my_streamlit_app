@@ -43,6 +43,10 @@ slit.dataframe(fruityvoice_norm2)
 #fruityvoice_resp_var = req.get("https://fruityvice.com/api/fruit/"+fruit_choice)
 #fruityvoice_norm_var = pd.json_normalize(fruityvoice_resp_var.json())
 #slit.dataframe(fruityvoice_norm_var)
+def get_data(mychoice):
+  fruityvoice_resp_var = req.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+  fruityvoice_norm_var = pd.json_normalize(fruityvoice_resp_var.json())
+  return fruityvoice_norm_var
 
 slit.header("::FruityVice - Selector::")
 try:
@@ -50,9 +54,8 @@ try:
   if not fruit_choice:
     slit.error("Please choose a fruit")
   else:
-    fruityvoice_resp_var = req.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-    fruityvoice_norm_var = pd.json_normalize(fruityvoice_resp_var.json())
-    slit.dataframe(fruityvoice_norm_var)
+    fn_ret = get_data(fruit_choice)
+    slit.dataframe(fn_ret)
 
 except URLError as e:
   slit.error()
