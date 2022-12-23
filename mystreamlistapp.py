@@ -48,6 +48,19 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**slit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-my_data_row = my_cur.fetchone()
+#my_data_row = my_cur.fetchone()
 slit.text("Hello from Snowflake:")
+#slit.text(my_data_row)
+
+my_cur = my_cnx.cursor()
+my_cur.execute("select * from fruit_load_list")
+my_data_row = my_cur.fetchone()
+slit.text("Fruit load list:")
 slit.text(my_data_row)
+
+slit.header("::::Fruit list contains only this::::")
+slit.dataframe(my_data_row)
+
+my_data_set = my_cur.fetchall()
+slit.header("::::Fruit list contains::::")
+slit.dataframe(my_data_set)
