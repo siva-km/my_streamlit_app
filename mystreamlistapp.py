@@ -86,4 +86,7 @@ slit.dataframe(my_data_set)
 #adding a new fruit
 slit.header("::Fruity - Input::")
 fruit_inp = slit.text_input('Add a new fruit ::')
+my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 slit.write('The user entered ', fruit_inp)
+my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+
